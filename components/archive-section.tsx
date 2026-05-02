@@ -49,7 +49,7 @@ export function ArchiveSection() {
             ARCHIVE
           </h2>
           <p className="mt-6 font-subheading text-[28px] font-[300] leading-8 text-muted-foreground w-full max-w-none tracking-wide">
-            A look back at our previous hackathons and the incredible projects built by our community.
+            A look back at our previous events.
           </p>
         </div>
 
