@@ -46,6 +46,10 @@ export function AboutSection() {
           </h2>
           <p className="mt-8 font-subheading text-[28px] font-[300] leading-8 text-muted-foreground tracking-wide">
             HackJPS is our annual flagship hackathon, bringing together the most creative minds for a weekend of intense learning and building. Whether you're a seasoned developer or just starting out, we provide the environment and resources you need to turn your ideas into reality.
+            <br />
+            Participation will be open to middle and high school students (aged 13+) from Edison as well as from other locations or school districts. Participants may have any level of experience, or none at all. We are welcoming to beginners and experts alike!
+            <br />
+            Additionally, participants will be able to attend in-person or virtual workshops hosted by sponsors or student organizations, exposing them to a multitude of other topics that might interest them.
           </p>
         </div>
       </div>
