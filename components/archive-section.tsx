@@ -7,38 +7,35 @@ const archiveData = [
   {
     year: "2025",
     organizers: "Anumeha Haldar, Aditya Saini, Abir Modak, Trisha Panchangmath, and Aryan Mittal",
-    links: [],
+    links: [
+      { label: "Project Gallery", href: "https://hackjps25.devpost.com/project-gallery" },
+      { label: "Livestream Recording", href: "https://youtu.be/kVIHTpSUaTw" },
+    ],
   },
   {
     year: "2024",
     organizers: "Sai Voruganti, Troy Gunawardene, Naishadh Patel, and Ishaan Gupte with the support of JPS Robotics",
     links: [
-      { label: "Project Gallery", href: "#" },
-      { label: "Opening Ceremony Slides", href: "#" },
-      { label: "Livestream Recording", href: "#" },
-      { label: "Closing Ceremony", href: "#" },
-      { label: "Closing Ceremony Slides", href: "#" },
-      { label: "LinkedIn Article", href: "#" },
+      { label: "Project Gallery", href: "https://hackjps-2024.devpost.com/project-gallery" },
+      { label: "Livestream Recording", href: "https://www.youtube.com/watch?v=PxcU1oWWCg4" },
+      { label: "LinkedIn Article", href: "https://www.linkedin.com/pulse/hackjps-personal-recap-many-thanks-troy-gunawardene-rotee/" },
     ],
   },
   {
     year: "2023",
     organizers: "Sai Voruganti, Troy Gunawardene, Naishadh Patel, and Ishaan Gupte",
     links: [
-      { label: "Project Gallery", href: "#" },
-      { label: "Opening Ceremony", href: "#" },
-      { label: "Livestream Recording", href: "#" },
-      { label: "Closing Ceremony", href: "#" },
-      { label: "Closing Ceremony Slides", href: "#" },
-      { label: "GradeScout Blog Feature", href: "#" },
+      { label: "Project Gallery", href: "https://hackjps-2023.devpost.com/project-gallery" },
+      { label: "Livestream Recording", href: "https://drive.google.com/file/d/1GKiAEpitQPj1tC8l0EvxY1nGhErid1z8/view?usp=drive_link" },
+      { label: "GradeScout Blog Feature", href: "https://blog.gradescout.live/hackjps-2023/" },
     ],
   },
   {
     year: "2020",
     organizers: "Venkat Kunaparaju, Aditya Chakka, Rishi Sinha, Aayush Gupta, Krish Naik, and Ashwin Saraswatula",
     links: [
-      { label: "Project Gallery", href: "#" },
-      { label: "Opening Ceremony", href: "#" },
+      { label: "Project Gallery", href: "https://hackjps.devpost.com/project-gallery" },
+      { label: "Opening Ceremony", href: "https://www.youtube.com/watch?v=at3Q_unZvBo" },
     ],
   },
 ]
