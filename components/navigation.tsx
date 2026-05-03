@@ -30,7 +30,7 @@ export function Navigation() {
   const formatNumber = (num: number) => num.toString().padStart(2, '0')
 
   return (
-    <div className="relative w-full text-[#c7c3b5] font-mono tracking-[0.2em] uppercase px-4 pt-4 pb-12">
+    <div className="relative w-full text-[#c7c3b5] font-mono tracking-[0.2em] uppercase px-0 pt-4 pb-12">
       {/* SVG Line with geometric kink - Increased stroke weight and moved branding below */}
       <div className="absolute top-8 left-0 w-full overflow-visible pointer-events-none opacity-50">
         <svg width="100%" height="40" viewBox="0 0 1000 40" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -38,9 +38,9 @@ export function Navigation() {
         </svg>
       </div>
 
-      <div className="relative flex justify-between items-start pt-12">
+      <div className="relative flex w-full justify-between items-start pt-12">
         {/* Left Block: Location & Timer */}
-        <div className="flex flex-col gap-1" style={{ fontFamily: "'ShareTechMono', monospace" }}>
+        <div className="flex flex-col items-start gap-1 text-left" style={{ fontFamily: "'ShareTechMono', monospace" }}>
           <div className="flex gap-2 items-baseline text-[10px] md:text-xs">
             <span className="font-bold">LOCATION:</span>
             <span className="font-bold">
@@ -62,12 +62,12 @@ export function Navigation() {
         </div>
 
         {/* Right Block: Hackers & Duration */}
-        <div className="flex flex-col gap-1 text-right" style={{ fontFamily: "'ShareTechMono', monospace" }}>
-          <div className="flex gap-2 justify-end items-baseline text-[10px] md:text-xs">
+        <div className="flex flex-col items-end gap-1 text-right" style={{ fontFamily: "'ShareTechMono', monospace" }}>
+          <div className="flex w-full gap-2 justify-end items-baseline text-[10px] md:text-xs">
             <span className="font-bold">HACKERS:</span>
             <span className="font-bold">500+</span>
           </div>
-          <div className="flex gap-2 justify-end items-baseline text-[10px] md:text-xs">
+          <div className="flex w-full gap-2 justify-end items-baseline text-[10px] md:text-xs">
             <span className="font-bold">BUILDING:</span>
             <span className="font-bold">48 HOURS</span>
           </div>
