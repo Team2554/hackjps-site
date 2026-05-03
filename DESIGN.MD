@@ -1,7 +1,7 @@
-# Hack GPS Design System
+# HackJPS Design System
 
 ## Purpose
-Hack GPS is the canonical design language for HackJPS digital properties. It codifies the visual and interaction rules established in the homepage and resources page so future hackathon sites, tools, and docs remain consistent.
+HackJPS is the canonical design language for HackJPS digital properties. It codifies the visual and interaction rules established in the homepage and resources page so future hackathon sites, tools, and docs remain consistent.
 
 Primary goals:
 - Keep the brand unmistakably HackJPS.
@@ -10,7 +10,7 @@ Primary goals:
 
 ## Brand Core
 - Brand: `HackJPS`
-- Design system name: `Hack GPS`
+- Design system name: `HackJPS`
 - Tone: `mission control`, `industrial`, `editorial`, `high-signal`
 - Audience: high-school hackers, mentors, judges, sponsors, volunteers
 
@@ -39,7 +39,7 @@ Green indicates action and emphasis. Warm off-white carries text hierarchy. Avoi
 - `--muted-foreground`: `#888888`
 - `--border`: `#3a3a44`
 
-### Hack GPS Specific
+### HackJPS Specific
 - `Telemetry Warm`: `#c7c3b5`
 - `Telemetry Warm Bright`: `#e1dece`
 - `Primary Signal Green`: `#16a34a`
@@ -161,4 +161,4 @@ Button-driven disclosures with visible expanded/collapsed state and keyboard acc
 - It is not playful gradient-heavy Gen-Z branding.
 - It is not soft, rounded consumer UI.
 
-Hack GPS should always feel like an event operations cockpit for ambitious student builders.
+HackJPS should always feel like an event operations cockpit for ambitious student builders.

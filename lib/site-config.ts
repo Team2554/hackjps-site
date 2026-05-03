@@ -1,6 +1,6 @@
 export const SITE_CONFIG = {
   siteName: "HackJPS",
-  designSystemName: "Hack GPS",
+  designSystemName: "HackJPS",
   year: 2026,
   eventDatesLabel: "March 29-30, 2026",
   countdownTargetIso: "2026-03-29T00:00:00-04:00",
