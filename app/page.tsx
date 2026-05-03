@@ -4,7 +4,6 @@ import { ScheduleSection } from "@/components/schedule-section"
 import { SponsorsSection } from "@/components/sponsors-section"
 import { ArchiveSection } from "@/components/archive-section"
 import { FAQSection } from "@/components/faq-section"
-import { Navigation } from "@/components/navigation"
 
 export default function Home() {
   return (

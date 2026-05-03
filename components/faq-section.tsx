@@ -31,9 +31,9 @@ const faqs = [
 ]
 
 export function FAQSection() {
-  const [openIndex, setOpenIndex] = useState(null)
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
 
-  const toggleFaq = (index) => {
+  const toggleFaq = (index: number) => {
     setOpenIndex(openIndex === index ? null : index)
   }
 
@@ -47,33 +47,39 @@ export function FAQSection() {
 
           <div className="mt-12 flex flex-col gap-6">
             {faqs.map((faq, index) => (
-              <div
-                key={index}
-                className="group relative p-6 border border-foreground/15 bg-card/10 hover:bg-foreground/5 transition-all cursor-pointer"
-                onClick={() => toggleFaq(index)}
+              <article
+                key={faq.question}
+                className="group relative border border-foreground/15 bg-card/10 transition-all hover:bg-foreground/5"
               >
-                <div className="absolute -left-[4px] -top-[4px] h-3 w-3 border-l-2 border-t-2 border-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="absolute -right-[4px] -top-[4px] h-3 w-3 border-r-2 border-t-2 border-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="absolute -bottom-[4px] -left-[4px] h-3 w-3 border-b-2 border-l-2 border-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="absolute -bottom-[4px] -right-[4px] h-3 w-3 border-b-2 border-r-2 border-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+                <button
+                  type="button"
+                  aria-expanded={openIndex === index}
+                  onClick={() => toggleFaq(index)}
+                  className="w-full cursor-pointer p-6 text-left"
+                >
+                  <div className="absolute -left-[4px] -top-[4px] h-3 w-3 border-l-2 border-t-2 border-foreground opacity-0 transition-opacity group-hover:opacity-100" />
+                  <div className="absolute -right-[4px] -top-[4px] h-3 w-3 border-r-2 border-t-2 border-foreground opacity-0 transition-opacity group-hover:opacity-100" />
+                  <div className="absolute -bottom-[4px] -left-[4px] h-3 w-3 border-b-2 border-l-2 border-foreground opacity-0 transition-opacity group-hover:opacity-100" />
+                  <div className="absolute -bottom-[4px] -right-[4px] h-3 w-3 border-b-2 border-r-2 border-foreground opacity-0 transition-opacity group-hover:opacity-100" />
 
-                <div className="flex items-center justify-between gap-4">
-                  <span className="text-lg font-display uppercase tracking-wider text-foreground">
-                    {faq.question}
-                  </span>
-                  <span className="text-accent text-2xl font-display font-mono">
-                    {openIndex === index ? "[-]" : "[+]"}
-                  </span>
-                </div>
-                
+                  <div className="flex items-center justify-between gap-4">
+                    <span className="text-lg font-display uppercase tracking-wider text-foreground">
+                      {faq.question}
+                    </span>
+                    <span className="text-accent text-2xl font-display font-mono">
+                      {openIndex === index ? "[-]" : "[+]"}
+                    </span>
+                  </div>
+                </button>
+
                 {openIndex === index && (
-                  <div className="mt-4 pt-4 border-t border-foreground/10">
+                  <div className="mt-1 border-t border-foreground/10 px-6 pb-6 pt-4">
                     <p className="text-muted-foreground leading-relaxed font-subheading text-lg">
                       {faq.answer}
                     </p>
                   </div>
                 )}
-              </div>
+              </article>
             ))}
           </div>
         </div>

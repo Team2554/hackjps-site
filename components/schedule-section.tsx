@@ -3,6 +3,8 @@
 import { useState } from "react"
 import { ExternalLink } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { SafeExternalLink } from "@/components/safe-external-link"
+import { SITE_CONFIG } from "@/lib/site-config"
 
 const schedule = {
   "Day 1 - March 29": [
@@ -26,7 +28,7 @@ const schedule = {
     { time: "4:30 PM", event: "Closing Ceremony" },
     { time: "5:30 PM", event: "Networking Reception" },
   ],
-}
+} as const
 
 type DayKey = keyof typeof schedule
 
@@ -43,15 +45,13 @@ export function ScheduleSection() {
           <h2 className="font-display text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl uppercase">
             EVENT SCHEDULE
           </h2>
-          <a
-            href="https://hackjps26.devpost.com/details/dates"
-            target="_blank"
-            rel="noopener noreferrer"
+          <SafeExternalLink
+            href={SITE_CONFIG.links.devpostDates}
             className="opacity-0 group-hover:opacity-100 transition-opacity p-2 text-muted-foreground hover:text-accent"
             aria-label="View on DevPost"
           >
             <ExternalLink className="h-8 w-8" />
-          </a>
+          </SafeExternalLink>
         </div>
 
         {/* Day tabs */}
@@ -74,9 +74,9 @@ export function ScheduleSection() {
 
         {/* Schedule list */}
         <div className="mt-10 space-y-0">
-          {currentSchedule.map((item, index) => (
+          {currentSchedule.map((item) => (
             <div
-              key={index}
+              key={`${item.time}-${item.event}`}
               className="flex items-center gap-6 border-t border-border/50 py-4"
             >
               <div className="w-24 shrink-0 text-sm font-medium text-muted-foreground">

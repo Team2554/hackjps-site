@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "motion/react"
+import { SITE_CONFIG } from "@/lib/site-config"
 
 export function TerminalLoading() {
   const [text1, setText1] = useState("")
@@ -10,13 +11,16 @@ export function TerminalLoading() {
   const [isVisible, setIsVisible] = useState(true)
 
   const line1 = "Hello hacker"
-  const line2 = "Welcome to HackJPS"
+  const line2 = `Welcome to ${SITE_CONFIG.siteName}`
 
   useEffect(() => {
     let currentText1 = ""
     let currentText2 = ""
     let index1 = 0
     let index2 = 0
+    let interval2: ReturnType<typeof setInterval> | null = null
+    let line2StartTimeout: ReturnType<typeof setTimeout> | null = null
+    let hideTimeout: ReturnType<typeof setTimeout> | null = null
 
     const typeLine1 = setInterval(() => {
       if (index1 < line1.length) {
@@ -25,19 +29,21 @@ export function TerminalLoading() {
         index1++
       } else {
         clearInterval(typeLine1)
-        setTimeout(typeLine2, 500)
+        line2StartTimeout = setTimeout(typeLine2, 500)
       }
     }, 100)
 
     const typeLine2 = () => {
-      const interval2 = setInterval(() => {
+      interval2 = setInterval(() => {
         if (index2 < line2.length) {
           currentText2 += line2[index2]
           setText2(currentText2)
           index2++
         } else {
-          clearInterval(interval2)
-          setTimeout(() => setIsVisible(false), 1500)
+          if (interval2) {
+            clearInterval(interval2)
+          }
+          hideTimeout = setTimeout(() => setIsVisible(false), 1500)
         }
       }, 80)
     }
@@ -49,6 +55,15 @@ export function TerminalLoading() {
     return () => {
       clearInterval(typeLine1)
       clearInterval(cursorInterval)
+      if (interval2) {
+        clearInterval(interval2)
+      }
+      if (line2StartTimeout) {
+        clearTimeout(line2StartTimeout)
+      }
+      if (hideTimeout) {
+        clearTimeout(hideTimeout)
+      }
     }
   }, [])
 

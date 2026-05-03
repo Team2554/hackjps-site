@@ -1,4 +1,6 @@
 import { ArrowRight, Clock, Sparkles } from "lucide-react"
+import { SafeExternalLink } from "@/components/safe-external-link"
+import { SITE_CONFIG } from "@/lib/site-config"
 
 export function RegisterSection() {
   return (
@@ -20,20 +22,18 @@ export function RegisterSection() {
             </h2>
             
             <p className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground">
-              Join 500+ innovators for 24 hours of hacking, learning, and fun. 
-              Registration closes February 28, 2026.
+              Join {SITE_CONFIG.hackerCountLabel} innovators for a full weekend of hacking, learning, and fun. 
+              Registration closes {SITE_CONFIG.registrationClosesLabel}.
             </p>
 
             <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-              <a
-                href="https://forms.hackjps.org/register"
-                target="_blank"
-                rel="noopener noreferrer"
+              <SafeExternalLink
+                href={SITE_CONFIG.links.register}
                 className="group inline-flex items-center gap-2 rounded-full bg-accent px-8 py-3.5 text-base font-medium text-accent-foreground transition-all hover:scale-105"
               >
                 Register Now
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </a>
+              </SafeExternalLink>
               <div className="flex items-center gap-2 text-muted-foreground">
                 <Clock className="h-4 w-4" />
                 <span className="text-sm">Takes less than 5 minutes</span>
@@ -42,7 +42,7 @@ export function RegisterSection() {
 
             <p className="mt-8 text-sm text-muted-foreground">
               Questions?{" "}
-              <a href="mailto:hello@hackjps.org" className="text-accent hover:underline">
+              <a href={SITE_CONFIG.links.generalContact} className="text-accent hover:underline">
                 Contact us
               </a>
             </p>

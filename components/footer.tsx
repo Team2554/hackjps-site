@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import { SITE_CONFIG } from "@/lib/site-config"
 
 export function Footer() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -43,9 +44,9 @@ export function Footer() {
           ref={textRef}
           className="mx-auto w-max select-none font-display text-[23vw] font-bold uppercase leading-[0.7] tracking-tighter text-foreground/10"
           style={{ transform: `scaleX(${scaleX})`, transformOrigin: "center" }}
-          aria-label="HackJPS"
+          aria-label={SITE_CONFIG.siteName}
         >
-          HACKJPS
+          {SITE_CONFIG.siteName.toUpperCase()}
         </h2>
       </div>
     </footer>

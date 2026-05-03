@@ -3,141 +3,44 @@
 import { useState } from "react"
 import Link from "next/link"
 import { ExternalLink } from "lucide-react"
-
-type ResourceBlock = {
-  heading: string
-  body?: string[]
-  bullets?: string[]
-}
-
-type ResourceSection = {
-  id: string
-  menu: string
-  title: string
-  subtitle: string
-  blocks: ResourceBlock[]
-}
-
-const sections: ResourceSection[] = [
-  {
-    id: "general",
-    title: "General\nInformation",
-    subtitle: "Core event logistics and how to get started once you arrive.",
-    blocks: [
-      {
-        heading: "Opening Ceremony",
-        body: [
-          "Check-in opens at 8:00 AM in the main atrium. Opening remarks begin at 9:00 AM.",
-          "If the auditorium reaches capacity, overflow seating and live stream screens will be available in adjacent rooms.",
-        ],
-      },
-      {
-        heading: "WiFi",
-        bullets: [
-          "Network: HACKJPS",
-          "Use a non-school email for guest access",
-          "Save your temporary access code in case you reconnect on another device",
-        ],
-      },
-      {
-        heading: "Building Access",
-        body: [
-          "Primary doors remain open during staffed hours.",
-          "Participants will not be able to repeatedly enter and exit the venue.",
-        ],
-      },
-      {
-        heading: "Food, Rest, and Safety",
-        bullets: [
-          "Meals and snacks will be available for purchase at the in-person event",
-          "Bring a water bottle, charger, and any personal medication you need",
-          "If you need immediate help, go to the check-in desk or message staff in Discord",
-        ],
-      },
-      {
-        heading: "What To Bring",
-        bullets: [
-          "Laptop and charger",
-          "School ID and registration confirmation",
-          "Any hardware components you specifically want to use",
-        ],
-      },
-    ],
-    menu: ""
-  },
-  {
-    id: "rules",
-    title: "Event\nRules",
-    subtitle: "Keep projects fair, safe, and eligible for final judging.",
-    blocks: [
-      {
-        heading: "Team Composition",
-        bullets: [
-          "Teams of 1 to 4 participants",
-          "All members must be officially registered",
-          "Team changes close after kickoff",
-        ],
-      },
-      {
-        heading: "Project Scope",
-        bullets: [
-          "Build must start during the event window",
-          "Prior work is allowed only for setup scaffolding and must be disclosed",
-          "You can use open-source libraries with attribution",
-        ],
-      },
-      {
-        heading: "Submission",
-        body: [
-          "Submit on Devpost before the deadline with source access, demo instructions, and a short video or live walkthrough plan.",
-        ],
-      },
-    ],
-    menu: ""
-  },
-]
-
-const menuItems = [
-  { id: "general", label: "General" },
-  { id: "rules", label: "Rules" },
-] as const
-
-const quickLinks = [
-  { label: "Discord", href: "https://discord.gg/ekVUFdykZJ" },
-  { label: "Devpost", href: "https://hackjps26.devpost.com" },
-  {
-    label: "Venue Map",
-    href: "https://www.google.com/maps/search/?api=1&query=John+P.+Stevens+High+School,+855+Grove+Ave,+Edison,+NJ",
-  },
-] as const
+import { SafeExternalLink } from "@/components/safe-external-link"
+import {
+  RESOURCE_MENU_ITEMS,
+  RESOURCE_QUICK_LINKS,
+  RESOURCE_SECTIONS,
+} from "@/lib/resources-content"
+import { SITE_CONFIG } from "@/lib/site-config"
 
 export default function ResourcesPage() {
-  const [activeId, setActiveId] = useState<(typeof menuItems)[number]["id"]>("general")
+  const [activeId, setActiveId] = useState<
+    (typeof RESOURCE_MENU_ITEMS)[number]["id"]
+  >("general")
 
   const activeSection =
-    sections.find((section) => section.id === activeId) ?? sections[0]
+    RESOURCE_SECTIONS.find((section) => section.id === activeId) ??
+    RESOURCE_SECTIONS[0]
 
   return (
     <main className="min-h-screen bg-black text-[#c7c3b5]">
       <header className="border-b border-[#c7c3b5]/20 px-4 pb-5 pt-6 md:px-8">
         <div className="grid grid-cols-2 items-start gap-4 md:grid-cols-3">
           <div className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-[#c7c3b5]/90 md:text-xs">
-            <p>Location: JPS</p>
-            <p className="mt-1">Time: 00:00:00</p>
+            <p>Location: {SITE_CONFIG.locationShort}</p>
+            <p className="mt-1">Dates: {SITE_CONFIG.eventDatesLabel}</p>
           </div>
 
           <div className="hidden items-center justify-center md:flex">
             <h1 className="font-display text-2xl font-bold uppercase tracking-tight text-[#c7c3b5]">
-              <Link href="/" className="transition-colors hover:text-white">
-                HackJPS
+              <Link href={SITE_CONFIG.links.home} className="transition-colors hover:text-white">
+                {SITE_CONFIG.siteName}
               </Link>{" "}
               <span className="font-mono text-xs tracking-[0.18em] text-[#c7c3b5]/70">| Hacker Resources</span>
             </h1>
           </div>
 
           <div className="justify-self-end text-right font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-[#c7c3b5]/90 md:text-xs">
-            <p>Hackers: 500+</p>
-            <p className="mt-1">Building: 48 Hours</p>
+            <p>Hackers: {SITE_CONFIG.hackerCountLabel}</p>
+            <p className="mt-1">Building: {SITE_CONFIG.buildDurationLabel}</p>
           </div>
         </div>
       </header>
@@ -145,7 +48,7 @@ export default function ResourcesPage() {
       <div className="flex flex-col md:grid md:min-h-[calc(100vh-92px)] md:grid-cols-[290px_1fr]">
         <aside className="border-b border-[#c7c3b5]/20 md:border-b-0 md:border-r md:border-[#c7c3b5]/20">
           <nav className="flex overflow-x-auto md:block">
-            {menuItems.map((item) => {
+            {RESOURCE_MENU_ITEMS.map((item) => {
               const active = item.id === activeId
 
               return (
@@ -163,23 +66,21 @@ export default function ResourcesPage() {
               )
             })}
 
-            <Link
-              href="https://hackjps26.devpost.com/resources"
-              target="_blank"
+            <SafeExternalLink
+              href={SITE_CONFIG.links.devpostResources}
               className="flex min-w-fit items-center gap-2 border-r border-[#c7c3b5]/10 px-5 py-4 font-sans text-xl text-[#c7c3b5]/95 transition-colors hover:bg-[#c7c3b5]/10 md:border-b md:border-r-0 md:border-[#c7c3b5]/10 md:px-4 md:py-3 md:text-[1.8rem]"
             >
               Get Started
               <ExternalLink className="h-4 w-4" />
-            </Link>
+            </SafeExternalLink>
 
-            <Link
-              href="https://hackjps26.devpost.com"
-              target="_blank"
+            <SafeExternalLink
+              href={SITE_CONFIG.links.devpost}
               className="flex min-w-fit items-center gap-2 border-r border-[#c7c3b5]/10 px-5 py-4 font-sans text-xl text-[#c7c3b5]/95 transition-colors hover:bg-[#c7c3b5]/10 md:border-b md:border-r-0 md:border-[#c7c3b5]/10 md:px-4 md:py-3 md:text-[1.8rem]"
             >
               Schedule
               <ExternalLink className="h-4 w-4" />
-            </Link>
+            </SafeExternalLink>
           </nav>
         </aside>
 
@@ -198,18 +99,17 @@ export default function ResourcesPage() {
             </p>
 
             <div className="mt-7 grid max-w-3xl grid-cols-1 gap-3 sm:grid-cols-2">
-              {quickLinks.map((link) => (
-                <Link
+              {RESOURCE_QUICK_LINKS.map((link) => (
+                <SafeExternalLink
                   key={link.label}
                   href={link.href}
-                  target={link.href.startsWith("http") ? "_blank" : undefined}
                   className="group flex items-center justify-between border border-[#c7c3b5]/20 bg-[#c7c3b5]/[0.03] px-4 py-3 transition-colors hover:bg-[#c7c3b5]/10"
                 >
                   <span className="font-mono text-xs uppercase tracking-[0.18em] text-[#d7d3c3]">
                     {link.label}
                   </span>
                   <ExternalLink className="h-3.5 w-3.5 text-[#c7c3b5]/75 transition-transform group-hover:translate-x-0.5" />
-                </Link>
+                </SafeExternalLink>
               ))}
             </div>
 

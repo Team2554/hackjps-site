@@ -1,39 +1,39 @@
-import type { Metadata } from 'next'
-import { Space_Grotesk, Inter } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/next'
-import { FloatingResourcesButton } from '@/components/floating-resources-button'
-import { TerminalLoading } from '@/components/terminal-loading'
-import './globals.css'
+import type { Metadata } from "next"
+import { Space_Grotesk, Inter } from "next/font/google"
+import { Analytics } from "@vercel/analytics/next"
+import { FloatingResourcesButton } from "@/components/floating-resources-button"
+import { TerminalLoading } from "@/components/terminal-loading"
+import { SITE_CONFIG } from "@/lib/site-config"
+import "./globals.css"
 
 const spaceGrotesk = Space_Grotesk({ 
   subsets: ["latin"],
-  variable: '--font-display'
-});
+  variable: "--font-display",
+})
 const inter = Inter({ 
   subsets: ["latin"],
-  variable: '--font-sans'
-});
+  variable: "--font-sans",
+})
 
 export const metadata: Metadata = {
-  title: 'HackJPS 2026 | Build the Future',
-  description: 'Join HackJPS 2026 - A 24-hour hackathon for innovators, builders, and dreamers. March 15-16, 2026.',
-  generator: 'v0.app',
+  title: `${SITE_CONFIG.siteName} ${SITE_CONFIG.year} | Build the Future`,
+  description: `Join ${SITE_CONFIG.siteName} ${SITE_CONFIG.year} for a ${SITE_CONFIG.buildDurationLabel.toLowerCase()} high-school hackathon in Edison, NJ.`,
   icons: {
     icon: [
       {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
+        url: "/icon-light-32x32.png",
+        media: "(prefers-color-scheme: light)",
       },
       {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
+        url: "/icon-dark-32x32.png",
+        media: "(prefers-color-scheme: dark)",
       },
       {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
+        url: "/icon.svg",
+        type: "image/svg+xml",
       },
     ],
-    apple: '/apple-icon.png',
+    apple: "/apple-icon.png",
   },
 }
 
@@ -48,7 +48,7 @@ export default function RootLayout({
         <TerminalLoading />
         {children}
         <FloatingResourcesButton />
-        {process.env.NODE_ENV === 'production' && <Analytics />}
+        {process.env.NODE_ENV === "production" && <Analytics />}
       </body>
     </html>
   )

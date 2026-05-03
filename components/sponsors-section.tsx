@@ -1,3 +1,6 @@
+import Image from "next/image"
+import { SITE_CONFIG } from "@/lib/site-config"
+
 const sponsors = [
   { name: "TechCorp" },
   { name: "InnovateLabs" },
@@ -38,9 +41,12 @@ export function SponsorsSection() {
                   <div className="absolute -bottom-[4px] -right-[4px] h-3 w-3 border-b-2 border-r-2 border-foreground" />
 
                   <div className="relative">
-                    <img 
-                      src="https://placehold.co/200x150.png" 
-                      alt="sponsor logo placeholder"
+                    <Image
+                      src="/placeholder-logo.svg"
+                      alt={`${sponsor.name} logo placeholder`}
+                      width={200}
+                      height={150}
+                      className="h-auto w-full max-w-[200px]"
                     />
                   </div>
                 </div>
@@ -49,7 +55,7 @@ export function SponsorsSection() {
 
             <div className="mt-12">
               <a 
-                href="mailto:sponsors@hackjps.org" 
+                href={SITE_CONFIG.links.sponsorContact}
                 className="inline-flex items-center gap-2 text-accent transition-colors hover:text-accent/80"
               >
                 <span>Become a sponsor</span>

@@ -1,6 +1,6 @@
-import { Calendar, MapPin, Users } from "lucide-react"
 import { Navigation } from "./navigation"
 import Image from "next/image"
+import { SITE_CONFIG } from "@/lib/site-config"
 
 export function HeroSection() {
   return (
@@ -26,7 +26,7 @@ export function HeroSection() {
       <div className="flex-1 flex flex-col justify-center w-full relative z-10">
         {/* Main headline */}
         <h1 className="font-display text-5xl font-bold leading-none tracking-tighter text-foreground sm:text-7xl md:text-8xl lg:text-[12rem] xl:text-[14rem] mt-16 md:mt-8">
-          HACKJPS
+          {SITE_CONFIG.siteName.toUpperCase()}
         </h1>
 
         {/* New event box styled after image */}
@@ -39,7 +39,7 @@ export function HeroSection() {
           
           <div className="border border-foreground/15 bg-foreground/5 px-6 py-3 backdrop-blur-sm">
             <p className="text-lg md:text-xl font-bold tracking-[0.1em] text-foreground uppercase" style={{ fontFamily: "ShareTechMono, monospace" }}>
-              MARCH 29-30, 2026 @ JPS
+              {SITE_CONFIG.eventDatesLabel.toUpperCase()} @ {SITE_CONFIG.locationShort}
             </p>
           </div>
         </div>

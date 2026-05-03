@@ -1,24 +1,4 @@
-import { Code, Lightbulb, Users, Zap } from "lucide-react"
 import Image from "next/image"
-
-const features = [
-  {
-    icon: Code,
-    title: "Build",
-  },
-  {
-    icon: Lightbulb,
-    title: "Learn",
-  },
-  {
-    icon: Users,
-    title: "Connect",
-  },
-  {
-    icon: Zap,
-    title: "Win",
-  },
-]
 
 export function AboutSection() {
   return (

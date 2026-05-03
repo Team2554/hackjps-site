@@ -1,266 +1,164 @@
-## Overview
+# Hack GPS Design System
 
-Cohere's current web presence feels like a sober enterprise AI command center with editorial restraint. The home page opens on a huge typographic declaration over a white canvas, then uses photography, dark product mockups, trust logos, and generous empty space to make AI infrastructure feel controlled rather than speculative. Product pages invert the tone into deep green-black or dark navy bands, while blog and research pages move toward publishing-system clarity: large filters, thin rules, dense lists, and pale technical backgrounds.
+## Purpose
+Hack GPS is the canonical design language for HackJPS digital properties. It codifies the visual and interaction rules established in the homepage and resources page so future hackathon sites, tools, and docs remain consistent.
 
-What makes the system distinctive is the mix of austere black-and-white UI with bursts of tactile brand imagery. The site avoids decorative chrome in the normal interface; color arrives through photography, abstract 3D media, coral blog taxonomy chips, blue research links, and dark product environments. Cards are rounded but not cute. Type is large, tight, and almost monospaced in spirit, creating a research-lab cadence across marketing, product, and editorial surfaces.
+Primary goals:
+- Keep the brand unmistakably HackJPS.
+- Make event information scannable under pressure.
+- Preserve a technical, command-center tone without sacrificing readability.
 
-**Key Characteristics:**
-- Monumental display headlines with very tight line height and negative tracking.
-- White editorial canvases interrupted by deep green, dark navy, and image-led CTA bands.
-- Rounded media cards and product cards, usually 8px to 22px.
-- Pill CTAs in near-black or white, with most secondary actions rendered as underlined text links.
-- Trust-logo strips with monochrome partner marks and very wide vertical spacing.
-- Agent-console mockups using dark panels, small status chips, and product integration badges.
-- Blog and research surfaces with prominent taxonomy chips, long rule-separated lists, and search fields.
+## Brand Core
+- Brand: `HackJPS`
+- Design system name: `Hack GPS`
+- Tone: `mission control`, `industrial`, `editorial`, `high-signal`
+- Audience: high-school hackers, mentors, judges, sponsors, volunteers
 
-## Colors
+## Visual Principles
+1. Black-first surfaces.
+The default canvas is black or near-black, with light typography and thin structural lines.
 
-### Brand & Accent
+2. Technical overlays over decorative UI.
+Use telemetry-style labels, monospace metadata, and grid/rule structure instead of soft consumer-card metaphors.
 
-- **White** (`#d8d4c7`): Primary text color and branding element (updated from #c7c3b5).
-- **Cohere Black** (`#000000`): Dominant background color, highest-contrast text, and the global brand anchor.
-- **Near-Black Primary** (`#17171c`): Primary CTA buttons, dark footer, and deep UI cards.
-- **Deep Enterprise Green** (`#003c33`): Product hero bands for North and Command-style dark sections.
-- **Dark Navy** (`#071829`): Financial-services and security-oriented solution bands.
-- **Action Blue** (`#1863dc`): Editorial links, pagination, and secondary action emphasis.
-- **Coral** (`#ff7759`): Blog category chips, taxonomy outlines, and warm product markers.
-- **Soft Coral** (`#ffad9b`): Pale chip borders and segmented article-label details.
+3. Sharp geometry with detached-corner accents.
+Cards, navigation blocks, and CTA shells should feel precise and engineered.
 
-### Surface & Background
+4. Big display type, restrained body copy.
+Use large uppercase display headlines, then calm readable paragraphs.
 
-- **Canvas White** (`#ffffff`): Dominant page background and form/card surface.
-- **Soft Stone** (`#eeece7`): Product cards, testimonial placeholders, and warm neutral surface blocks.
-- **Pale Green Wash** (`#edfce9`): North page section backdrop behind stacked dark capability panels.
-- **Pale Blue Wash** (`#f1f5ff`): Blog CTA surface behind abstract 3D imagery.
-- **Card Border** (`#f2f2f2`): Softest card containment line.
+5. Color as signal, not decoration.
+Green indicates action and emphasis. Warm off-white carries text hierarchy. Avoid rainbow accents.
 
-### Event Details
+## Color Tokens
+### Core
+- `--background`: `#000000`
+- `--foreground`: `#ffffff`
+- `--card`: `#111111`
+- `--muted`: `#1a1a1a`
+- `--muted-foreground`: `#888888`
+- `--border`: `#3a3a44`
 
-- **Dates**: March 29-30, 2026.
-- **Location**: John P. Stevens High School (JPS), Innovation Center.
-- **Duration**: 24-hour hackathon format (48-hour total event window including check-in/out).
-- **Target Audience**: High school and college students.
-- **Capacity**: 500+ Hackers.
+### Hack GPS Specific
+- `Telemetry Warm`: `#c7c3b5`
+- `Telemetry Warm Bright`: `#e1dece`
+- `Primary Signal Green`: `#16a34a`
+- `Danger`: `#b30000`
 
-### Text & Rules
-
-- **Ink** (`#212121`): Default body text and most link text on light backgrounds.
-- **Muted Slate** (`#93939f`): Footer links, dates, metadata, and de-emphasized labels.
-- **Slate** (`#75758a`): Research separators and tertiary text.
-- **Hairline** (`#d9d9dd`): Standard list rules and section dividers.
-- **Border Light** (`#e5e7eb`): Secondary divider and utility rule.
-
-### Semantic
-
-- **Focus Blue** (`#4c6ee6`): Keyboard focus and ring color.
-- **Form Focus Violet** (`#9b60aa`): Focus border for text inputs.
-- **Error Red** (`#b30000`): Extracted ring/shadow color associated with validation-like states.
-
-### Gradient System
-
-Cohere does not use gradients as a generic UI fill. Gradients and color fields are media-led: abstract 3D hero imagery, deep blue open-science particle fields, red-orange product video posters, and dark green-to-black product environments. Keep UI surfaces flat; reserve gradient richness for large media panels and CTA image bands.
+### Usage Rules
+- Use `Telemetry Warm` for operational labels, outlines, and dense resource surfaces.
+- Use white for hero-level branding and critical text.
+- Use green for action states and highlighted interaction only.
+- Keep gradients subtle and atmospheric; do not use bright multicolor backgrounds.
 
 ## Typography
+### Font Stack
+- Display: `AgencyFB` with `Space Grotesk` fallback
+- Sans/UI: `Inter`
+- Mono/Telemetry: `ShareTechMono`
 
-### Font Family
+### Type Scale Guidance
+- Hero title: `text-7xl` to `text-[14rem]`, uppercase, tight tracking
+- Section title: `text-4xl` to `text-6xl`, uppercase
+- Resource hero title: `text-6xl` to `text-8xl`, uppercase
+- Body copy: `16px` to `18px`, relaxed leading
+- Telemetry/meta labels: `10px` to `12px`, uppercase, wide tracking
 
-- **Display**: `CohereText`, falling back to `Space Grotesk`, `Inter`, `ui-sans-serif`, and `system-ui`.
-- **Body/UI**: `Unica77 Cohere Web`, falling back to `Inter`, `Arial`, `ui-sans-serif`, and `system-ui`.
-- **Technical labels**: `CohereMono`, falling back to `Arial`, `ui-sans-serif`, and `system-ui`.
-- **Icons**: Cohere uses custom icon fonts and thin-line geometric illustrations.
+### Typographic Behavior
+- Keep metadata uppercase and monospace.
+- Keep body copy sentence case.
+- Use sparse punctuation in major labels to retain control-panel tone.
 
-### Hierarchy
+## Layout System
+### Structure
+- Homepage: full-screen vertical snap sections.
+- Resources: left rail navigation + right detail pane.
+- Header rows: left telemetry, center brand, right telemetry.
 
-| Role | Font | Size | Weight | Line Height | Letter Spacing | Notes |
-|---|---|---:|---:|---:|---:|---|
-| Header | AgencyFB | - | Bold | - | - | Custom header font. |
-| Subheading | Roboto | 28px | 100/200 | - | - | Custom subheading font. |
-| Hero Display | CohereText | 96px | 400 | 1.00 | -1.92px | Home page declaration scale. |
-| Product Display | CohereText | 72px | 400 | 1.00 | -1.44px | Product and research hero headlines. |
-| Section Display | Unica77 | 60px | 400 | 1.00 | -1.2px | Large product-page headings. |
-| Section Heading | Unica77 | 48px | 400 | 1.20 | -0.48px | Split hero and CTA headings. |
-| Card Heading | Unica77 | 32px | 400 | 1.20 | -0.32px | Feature card and list section titles. |
-| Feature Heading | Unica77 | 24px | 400 | 1.30 | 0 | Cards, filters, and article titles. |
-| Body Large | Unica77 | 18px | 400 | 1.40 | 0 | Lead text and larger paragraphs. |
-| Body | Unica77 | 16px | 400 | 1.50 | 0 | Default copy and link text. |
-| Button | Unica77 | 14px | 500 | 1.71 | 0 | Compact CTA labels. |
-| Caption | Unica77 | 14px | 400 | 1.40 | 0 | Metadata and small explanatory text. |
-| Mono Label | CohereMono | 14px | 400 | 1.40 | 0.28px | Uppercase technical labels. |
-| Micro | Unica77 | 12px | 400 | 1.40 | 0 | Footer, nav microcopy, and small links. |
+### Spacing
+Base rhythm: 4px/8px with larger jumps for section transitions.
+Common values: `4, 6, 8, 12, 16, 24, 32, 48, 64, 96`.
 
-### Principles
+### Density Rules
+- Hero and section openings should breathe.
+- Resource blocks can be denser but need clear separators (`border-t` or rail lines).
 
-- Use massive type sparingly; Cohere pages often have one oversized headline and then settle into restrained 16px-24px UI copy.
-- Keep display type tight. Hero copy should feel compact and carved, not airy.
-- Avoid heavy bold weights. Size, spacing, and surface contrast do most of the hierarchy work.
-- Use uppercase mono labels for category and system markers, especially on product and research pages.
-- Editorial pages can use coral chips and blue links, but the base typography remains black and measured.
+## Shape, Lines, and Surfaces
+- Primary corners are square or minimally rounded.
+- Detached-corner accents are preferred for important interactive surfaces.
+- Border treatment should stay thin (`1px` or `2px` max for accents).
+- Avoid heavy drop shadows; depth comes from overlays and contrast.
 
-## Layout
+## Signature Components
+### Top Telemetry Bar
+A slim command-line header with:
+- Location
+- Date/countdown context
+- Participant/build metrics
 
-### Spacing System
+### Hero Mark
+Massive `HACKJPS` wordmark over dramatic event imagery with vignette masking.
 
-The system uses an 8px base with many one-off alignment values: `2px`, `6px`, `8px`, `10px`, `12px`, `16px`, `20px`, `22px`, `24px`, `28px`, `32px`, `36px`, `40px`, `56px`, `60px`, `64px`, and `80px`.
+### Section Frames
+Each major section starts with uppercase display heading + short descriptive paragraph.
 
-Large sections rely on dramatic vertical breathing room. The home page places a trust-logo strip far below the hero media. Product pages often hold dark panels inside fields of empty white space, then transition to dense forms or footers only near the end.
+### Resource Rail Navigation
+- Left list of categories/actions
+- Active row uses inverted colors (warm background, dark text)
+- External utility links include icon indicators
 
-### Grid & Container
+### Utility Link Cards
+Bordered low-contrast blocks with monospace labels and right-aligned outbound icon.
 
-- Global nav uses a three-zone layout: logo left, menu centered, sign-in/CTA right.
-- Home hero is centered text above a two-card media composition: a wide product mockup card beside a narrower photography card.
-- Feature sections commonly use 3-column cards on desktop.
-- Product pages alternate centered hero blocks, trust-logo strips, large single-feature bands, and 2- or 3-column card grids.
-- Research pages use full-width lists with date and chip columns instead of decorative cards.
-- Forms use two-column input rows inside a rounded white card on dark or stone section backgrounds.
+### Expandable FAQ Items
+Button-driven disclosures with visible expanded/collapsed state and keyboard accessibility.
 
-### Whitespace Philosophy
+## Motion
+- Motion should be minimal and meaningful.
+- Preferred patterns:
+  - Soft fade-in overlays
+  - Subtle hover color shifts
+  - Small directional icon nudges
+  - Countdown updates at sensible intervals
+- Avoid elastic, playful, or spring-heavy motion styles.
 
-Cohere uses whitespace as a trust signal. Large empty intervals separate the brand claim, customer proof, product proof, and CTA. Dense content appears only where it serves the information architecture: research paper rows, blog card grids, and contact form fields.
+## Accessibility and Safety Standards
+- Interactive containers must be semantic (`button`, `a`) not clickable `div`s.
+- Any external link opened in a new tab must include `rel="noopener noreferrer"`.
+- Keep contrast high on black surfaces.
+- Treat event-critical strings (date, location, links) as centralized config values.
+- Do not bypass type errors in production build config.
 
-## Elevation & Depth
-
-Cohere is mostly flat. Depth comes from surface alternation, media contrast, rounded corners, and thin borders rather than drop shadows.
-
-| Level | Treatment | Use |
-|---|---|---|
-| Flat | No shadow, white or dark field | Hero copy, research lists, editorial surfaces |
-| Bordered | 1px `#d9d9dd`, `#e5e7eb`, or dark translucent rules | Research rows, forms, pale cards, footer inputs |
-| Media Lift | Rounded image or video over contrasting section color | Hero photo cards, product videos, CTA imagery |
-| Dark Product Field | Deep green or navy full-width band | Command, North, financial services, security sections |
-
-## Shapes
-
-### Radius Scale
-
-| Token | Value | Role |
-|---|---:|---|
-| `xs` | 4px | Small images, search fields, article thumbnails, utility elements |
-| `sm` | 8px | Blog chips, cards, small media, dialogs |
-| `md` | 16px | Medium product cards and grouped blocks |
-| `lg` | 22px | Signature media-card and soft placeholder radius |
-| `xl` | 30px | Research/topic filter pills |
-| `pill` | 32px | Primary CTA buttons |
-| `full` | 9999px | Round status elements and fully pill-shaped controls |
-
-### Image Treatment
-
-Images are not decorative backdrops for text except in CTA bands. Most imagery sits as rounded cards with visible corners: product videos, enterprise photography, article thumbnails, and abstract 3D renders. The dominant radii are 8px and 22px.
-
-## Components
-
-### **`button-primary`**
-
-Near-black or white pill CTA, depending on surface contrast. Uses 14px-16px Unica77, 12px 24px padding, and a 32px pill radius. This is the primary action style for "Request a demo", "Submit", and hero CTAs.
-
-### **`button-secondary`**
-
-Text-only action link, usually underlined or rule-aligned, with no filled background. Used for "Explore products", "Try the Playground", newsletter signup, and secondary hero actions.
-
-### **`button-pill-outline`**
-
-Outlined pill control with transparent fill, 1px dark border, and 30px radius. Used for research filters, topic tags, and lightweight taxonomy controls.
-
-### **`announcement-bar`**
-
-Full-width black strip above the nav, 36px tall, centered microcopy with an underlined "Learn more" link and a close control at the far right.
-
-### **`hero-photo-card`**
-
-Rounded media card used in the home hero and solution pages. It combines photography or abstract imagery with an overlaid dark agent-console module. Radius is usually 22px on large cards and 8px on smaller thumbnails.
-
-### **`agent-console-card`**
-
-Dark product mockup panel showing agent names, status chips, integration badges, prompt fields, and generated response cards. Background is near-black, text is white or muted, and small accent chips use product colors.
-
-### **`trust-logo-strip`**
-
-Centered copy above a row of monochrome customer logos. It is intentionally quiet: no cards, no borders, just large horizontal spacing and black or white logos depending on the background.
-
-### **`capability-card`**
-
-Content block with thin-line geometric illustration, 24px heading, body copy, and a text link. On light backgrounds, cards often have only a top rule or a subtle image/card relationship rather than full boxing.
-
-### **`dark-feature-band`**
-
-Deep green or navy full-width section used for product capabilities, security claims, and feature breakdowns. Text turns white; cards use darker translucent surfaces, pale borders, and abstract line illustrations.
-
-### **`product-card`**
-
-Warm stone card used for product/model summaries. Typically 3-column on desktop, with 8px radius, generous padding, a small pill button, a divider line, and checkmark bullet rows.
-
-### **`blog-filter-chip`**
-
-Large coral taxonomy chip used on the blog index. Active chips invert to coral fill with dark text; inactive chips use coral outline and pale fill. Typography is oversized relative to typical filters, making the taxonomy a hero-level control.
-
-### **`research-table`**
-
-Rule-separated publication list with title left, topic pills centered, and date right. Rows are tall, white, and border-driven; filters above use many compact outlined pills.
-
-### **`contact-form-card`**
-
-Rounded white form panel set against dark green or warm stone sections. Inputs are rectangular with thin gray borders, 12px-16px padding, and compact labels/placeholders. Submit uses the same near-black pill style as primary CTAs.
-
-### **`footer-newsletter`**
-
-Dark footer subscription block with coral "AI moves fast" label, white headline, muted legal microcopy, a single-line email field, and arrow submit marker. Footer columns use white section labels and muted links.
-
-## Do's and Don'ts
-
-### Do
-
-- Use white canvas as the default surface; introduce dark green or navy as full-width product bands.
-- Keep primary CTAs pill-shaped and near-black on light surfaces.
-- Use 22px radius on major media cards and placeholders.
-- Use coral for editorial taxonomy and small warm accents, not as the main CTA system.
-- Use monochrome trust logos with wide spacing.
-- Use thin-line geometric illustrations for research and capability icons.
-- Let photography and product mockups carry color, while the UI shell stays restrained.
-
-### Don't
-
-- Do not turn coral or blue into broad decorative surface colors.
-- Do not add heavy drop shadows to cards.
-- Do not make every section card-based; Cohere often uses unframed rows, rules, and open space.
-- Do not use rounded cards below 8px for major media.
-- Do not replace the display/body type split with one generic sans-serif voice.
-- Do not render undocumented interaction variants in documentation or previews.
-- Do not use saturated gradients as normal UI backgrounds; keep gradients media-led.
+## Content Voice
+- Direct, short, operational.
+- Emphasize readiness, logistics, and action.
+- Example style:
+  - "General Information"
+  - "Event Rules"
+  - "Building: 48 Hours"
+  - "Get Started"
 
 ## Responsive Behavior
+### Mobile
+- Preserve telemetry style but shorten labels.
+- Resource rail becomes horizontal scrollable strip.
+- Keep primary headings large but avoid clipping.
 
-### Breakpoints
+### Tablet/Desktop
+- Restore split-pane resources layout.
+- Keep center brand lockup in header rows.
+- Preserve full detached-corner and line treatments.
 
-| Name | Width | Key Changes |
-|---|---:|---|
-| Small Mobile | <425px | Single-column cards, compact nav, reduced hero headline scale |
-| Mobile | 425-640px | Hero media stacks, card grids become one column, form rows stack |
-| Large Mobile | 640-768px | Wider one-column layouts with larger media cards |
-| Tablet | 768-1024px | Two-column cards begin, nav spacing tightens |
-| Desktop | 1024-1440px | Full nav, 3-column card grids, split hero compositions |
-| Large Desktop | 1440-2560px | Wide containers and large empty vertical intervals |
+## Implementation Rules for Future Hackathons
+1. Reuse the same token vocabulary before introducing new colors or typography.
+2. Add new content sections by composition, not one-off style overrides.
+3. Put event-specific details in shared config modules.
+4. Keep external links behind a shared safe-link abstraction.
+5. Run build + typecheck before shipping any design iteration.
 
-### Touch Targets
+## Non-Goals
+- This system is not a generic startup SaaS style.
+- It is not playful gradient-heavy Gen-Z branding.
+- It is not soft, rounded consumer UI.
 
-Primary CTAs and pills meet comfortable touch sizing through 12px-24px padding and pill radii. Research filter chips and blog category chips are larger than standard tags, making dense taxonomy surfaces usable on touch devices.
-
-### Collapsing Strategy
-
-- Nav collapses from full horizontal links to a compact mobile menu.
-- Hero media moves from split cards to stacked cards.
-- Product and capability grids collapse from 3 columns to 2 and then 1.
-- Form fields collapse from paired rows to a single column.
-- Research rows preserve their rule-separated structure but stack metadata below titles on smaller widths.
-
-## Iteration Guide
-
-1. Start from a white canvas or a full-width dark green/navy band; avoid mid-tone page backgrounds unless the screenshot shows a specific CTA/form section.
-2. Use `button-primary` for the single highest-priority action and `button-secondary` for the companion action.
-3. Use `hero-photo-card` or `agent-console-card` when a page needs visual energy; avoid invented dashboard data.
-4. For editorial pages, combine `blog-filter-chip`, `button-pill-outline`, and `research-table` instead of generic marketing cards.
-5. Keep component examples structurally honest: placeholder product frames are better than invented product content.
-
-## Known Gaps
-
-- Exact proprietary font files are not bundled; use the documented fallbacks when implementing externally.
-- Mobile screenshots were not regenerated in this public update, so mobile behavior is documented from the desktop system and existing responsive patterns.
-- Some live pages lazy-load content blocks late; blank testimonial placeholders are documented as placeholder skeleton surfaces rather than filled testimonial cards.
+Hack GPS should always feel like an event operations cockpit for ambitious student builders.

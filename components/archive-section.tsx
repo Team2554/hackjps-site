@@ -1,7 +1,7 @@
 "use client"
 
 import { ExternalLink } from "lucide-react"
-import { cn } from "@/lib/utils"
+import { SafeExternalLink } from "@/components/safe-external-link"
 
 const archiveData = [
   {
@@ -70,11 +70,9 @@ export function ArchiveSection() {
                   
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {item.links.map((link) => (
-                      <a
+                      <SafeExternalLink
                         key={link.label}
                         href={link.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
                         className="group/link relative p-4 border border-foreground/15 bg-card/30 hover:bg-foreground/5 transition-all"
                         style={{ fontFamily: "'ShareTechMono', monospace" }}
                       >
@@ -90,7 +88,7 @@ export function ArchiveSection() {
                           </span>
                           <ExternalLink className="h-4 w-4 text-muted-foreground/50 group-hover/link:text-foreground transition-colors" />
                         </div>
-                      </a>
+                      </SafeExternalLink>
                     ))}
                   </div>
                 </div>

@@ -4,11 +4,12 @@ import React from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Button } from '@/components/ui/button'
+import { SITE_CONFIG } from '@/lib/site-config'
 
 export function FloatingResourcesButton() {
   const pathname = usePathname()
 
-  if (pathname === '/resources') {
+  if (pathname === SITE_CONFIG.links.resources) {
     return null
   }
 
@@ -26,7 +27,7 @@ export function FloatingResourcesButton() {
           asChild 
           className="relative rounded-none px-8 py-6 text-base font-bold tracking-widest transition-all hover:bg-[#16a34a]/10 active:scale-95 bg-transparent text-[#16a34a] border-none shadow-none font-display"
         >
-          <Link href="/resources" className="flex items-center gap-4">
+          <Link href={SITE_CONFIG.links.resources} className="flex items-center gap-4">
             HACKER RESOURCES
             <span className="text-xl font-light opacity-80">&gt;</span>
           </Link>
